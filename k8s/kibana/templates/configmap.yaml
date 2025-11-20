@@ -16,5 +16,5 @@ data:
     interactiveSetup.enabled: false
 
     # CSP-настройки
-#    csp.strict: false              # не блокировать браузер, если что-то не так
-#    csp.warnLegacyBrowsers: false  # не показывать попапы про "обновите браузер"
+    csp.strict: false              # не блокировать браузер, если что-то не так
+    csp.warnLegacyBrowsers: false  # не показывать попапы про "обновите браузер"
