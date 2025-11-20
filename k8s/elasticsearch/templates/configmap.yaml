@@ -7,8 +7,9 @@ data:
     cluster.name: elk-logging
     node.name: ${HOSTNAME}
     discovery.type: single-node
+
     network.host: 0.0.0.0
 
-    xpack.security.enabled: true
+    # Отключаем автоматическую настройку security
+    xpack.security.enabled: false
     xpack.security.autoconfiguration.enabled: false
-    xpack.security.http.ssl.enabled: false
