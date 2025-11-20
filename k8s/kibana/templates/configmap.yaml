@@ -15,5 +15,10 @@ data:
 
     interactiveSetup.enabled: false
 
+    # Fleet / Integrations
+    xpack.fleet.enabled: true
+    # Можно явно указать, но по умолчанию и так так:
+    xpack.fleet.registryUrl: "https://epr.elastic.co"
+
 #    xpack.security.enabled: false
 #    xpack.encryptedSavedObjects.encryptionKey: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
