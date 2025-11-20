@@ -1,0 +1,26 @@
+image:
+  repository: cr.fluentbit.io/fluent/fluent-bit
+  tag: "3.0.0"
+  pullPolicy: IfNotPresent
+
+# Куда отправляем логи
+elasticsearch:
+  host: elasticsearch
+  port: 9200
+  index: fluent-bit
+  logstash_format: true
+
+resources: {}
+
+serviceAccount:
+  create: true
+  name: ""
+
+rbac:
+  create: true
+
+# Путь до логов контейнеров (containerd)
+paths:
+  containers: /var/log/containers/*.log
+  # если нужно подстроить под docker:
+  # containers: /var/lib/docker/containers/*/*.log

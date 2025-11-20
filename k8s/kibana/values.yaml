@@ -1,0 +1,33 @@
+replicas: 1
+
+image:
+  repository: docker.io/kibana
+  tag: "8.13.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5601
+
+elasticsearch:
+  # URL для подключения Kibana к ES
+  url: "http://elasticsearch:9200"
+
+resources: {}
+
+ingress:
+  enabled: true
+  className: nginx
+
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+
+  hosts:
+    - host: kibana.mycum.ru
+      path: /
+
+  tls:
+    - secretName: kibana-tls
+      hosts:
+        - kibana.mycum.ru

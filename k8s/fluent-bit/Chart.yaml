@@ -1,0 +1,6 @@
+apiVersion: v2
+name: fluent-bit
+description: Fluent Bit DaemonSet for collecting logs to Elasticsearch
+type: application
+version: 0.1.0
+appVersion: "3.0"
