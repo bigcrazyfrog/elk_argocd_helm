@@ -10,10 +10,10 @@ dependencies:
     version: 0.1.0
     repository: "file://../elasticsearch"
 
-#  - name: kibana
-#    version: 0.1.0
-#    repository: "file://../kibana"
-#
-#  - name: fluent-bit
-#    version: 0.1.0
-#    repository: "file://../fluent-bit"
+  - name: kibana
+    version: 0.1.0
+    repository: "file://../kibana"
+
+  - name: fluent-bit
+    version: 0.1.0
+    repository: "file://../fluent-bit"
