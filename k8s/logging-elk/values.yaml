@@ -1,0 +1,21 @@
+# Единый namespace — logging
+
+elasticsearch:
+  replicas: 1
+  storage:
+    size: 10Gi
+  resources: {}
+  javaOpts: "-Xms512m -Xmx512m"
+
+kibana:
+  replicas: 1
+  ingress:
+    enabled: true
+    className: nginx
+    host: kibana.example.com
+
+fluent-bit:
+  elasticsearch:
+    host: elasticsearch.logging.svc.cluster.local
+    port: 9200
+    index: fluent-bit

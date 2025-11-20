@@ -1,0 +1,12 @@
+replicas: 1
+
+image:
+  repository: docker.io/elasticsearch
+  tag: "8.13.0"
+
+resources: {}
+
+storage:
+  size: 10Gi
+
+javaOpts: "-Xms512m -Xmx512m"

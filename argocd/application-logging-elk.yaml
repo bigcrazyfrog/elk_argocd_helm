@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: logging-elk
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/bigcrazyfrog/elk_argocd_helm
+    targetRevision: main
+    path: k8s/logging-elk
+    helm:
+      valueFiles:
+        - values.yaml    # можно заменить на values-prod.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: logging     # namespace для всей системы логирования
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
