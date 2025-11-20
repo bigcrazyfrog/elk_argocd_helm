@@ -17,6 +17,7 @@ data:
         Mem_Buf_Limit     10MB
         Skip_Long_Lines   On
         Refresh_Interval  5
+        Parser            docker
 
     [FILTER]
         Name                kubernetes
@@ -26,12 +27,21 @@ data:
         Keep_Log            Off
 
     [OUTPUT]
-        Name            es
-        Match           kube.*
-        Host            {{ .Values.elasticsearch.host }}
-        Port            {{ .Values.elasticsearch.port }}
-        Index           {{ .Values.elasticsearch.index }}
-        Logstash_Format {{ ternary "On" "Off" .Values.elasticsearch.logstash_format }}
+        Name                es
+        Match               kube.*
+        Host                {{ .Values.elasticsearch.host }}
+        Port                {{ .Values.elasticsearch.port }}
+
+        # делаем индексы вида logs-k8s-YYYY.MM.DD
+        Logstash_Format     On
+        Logstash_Prefix     logs-k8s
+
+        # КРИТИЧНО для Elasticsearch 7/8 — не слать _type
+        Suppress_Type_Name  On
+
+        # чуть более удобный формат полей
+        Replace_Dots        On
+        Retry_Limit         False
 
   parsers.conf: |
     [PARSER]
