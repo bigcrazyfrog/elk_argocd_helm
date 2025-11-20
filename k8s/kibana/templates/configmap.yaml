@@ -12,3 +12,6 @@ data:
     # CSP-настройки
     csp.strict: false              # не блокировать браузер, если что-то не так
     csp.warnLegacyBrowsers: false  # не показывать попапы про "обновите браузер"
+
+    xpack.security.enabled: false
+    xpack.encryptedSavedObjects.encryptionKey: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
