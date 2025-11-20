@@ -5,5 +5,5 @@ metadata:
 data:
   kibana.yml: |
     server.host: "0.0.0.0"
-    server.publicBaseUrl: "http://{{ (index .Values.ingress.hosts 0).host | default "localhost" }}"
+    server.publicBaseUrl: "https://{{ (index .Values.ingress.hosts 0).host | default "localhost" }}"
     elasticsearch.hosts: ["{{ .Values.elasticsearch.url }}"]
