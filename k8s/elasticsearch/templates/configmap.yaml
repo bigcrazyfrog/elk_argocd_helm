@@ -8,6 +8,8 @@ data:
     node.name: ${HOSTNAME}
     discovery.type: single-node
 
+    network.host: 0.0.0.0
+
     # Отключаем автоматическую настройку security
     xpack.security.enabled: false
     xpack.security.autoconfiguration.enabled: false
